@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapido Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 30px 50px;
+            background-color: white;
+            gap: 300px;
+        }
+
+        .logo img {
+            height: 100px;
+            padding-left: 20px;
+            position: relative;
+            top: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hamburger menu styles */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+
+        section {
+            background: url('background-map.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            padding: 100px;
+        }
+
+        section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            width: 600px;
+            border: 2px solid #ccc;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-box img {
+            width: 24px;
+            margin-right: 15px;
+        }
+
+        .input-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 18px;
+        }
+
+        .book-btn {
+            background: #ffcc00;
+            border: none;
+            padding: 18px 20vh;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background: #e6b800;
+        }
+
+        .services-container {
+            width: 100%;
+            background-color: #f9fafa;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 22px;
+            color: rgb(51, 51, 51);
+            line-height: 33px;
+        }
+
+        .services-heading {
+            font-size: 48px;
+            margin-bottom: 10px;
+            padding-left: 150px;
+        }
+
+        .heading-underline {
+            height: 3px;
+            background-color: #ffc107;
+            width: 100px;
+            margin-left: 150px;
+            margin-bottom: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item img {
+            width: 200px;
+            height: 100px;
+            margin-bottom: 5px;
+            border-radius: 15px;
+            background-color: #f0f0f0;
+            padding: 5px;
+            object-fit: contain;
+        }
+
+        .service-item span {
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .text-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .text-content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: rgb(51, 51, 51);
+            font-family: "Noto Sans", sans-serif;
+            font-weight: 700;
+            line-height: 72px;
+        }
+
+        .text-content .divider {
+            width: 50px;
+            height: 3px;
+            background-color: #ffc107;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            font-size: 32px;
+            color: #555;
+            line-height: 48px;
+            font-weight: 400;
+            color: rgb(51, 51, 51);
+        }
+
+        .text-content .button {
+            display: inline-block;
+            padding: 20px 40px;
+            background-color: #222;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+
+        .image-section {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .image-section img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .safety-container {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .safety-text-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .safety-text-content h1 {
+            font-family: "Noto Sans", sans-serif;
+            font-size: 48px;
+            color: rgb(51, 51, 51);
+            margin-bottom: 15px;
+            line-height: 72px;
+            font-weight: 700;
+        }
+
+        .safety-text-content h1::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ffcc00;
+            margin-bottom: 8px;
+        }
+
+        .safety-text-content p {
+            font-size: 32px;
+            font-family: "Noto Sans", sans-serif;
+            color: rgb(51, 51, 51);
+            line-height: 48px;
+            margin-bottom: 25px;
+        }
+
+        .safety-text-content .button {
+            color: #2e3192;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .safety-image-section {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .safety-image-section img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+
+        .footer {
+            background-color: #000;
+            padding: 40px 0;
+            text-align: center;
+            color: #fff;
+            font-family: "Noto Sans", sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .copyright-section {
+            text-align: left;
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 20px;
+            border-top: 1px solid #444;
+            padding-top: 10px;
+        }
+
+
+        .download-section {
+            background-color: black;
+        }
+
+        .download-section h2 {
+            font-size: 45px;
+            margin-bottom: 10px;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            line-height: 72px;
+            font-family: "Noto Sans", sans-serif;
+        }
+
+        .download-options {
+            display: flex;
+            justify-content: center;
+
+            gap: 30px;
+            font-weight: 400;
+            color: rgb(255, 255, 255);
+            line-height: 42px;
+            font-size: 28px;
+        }
+
+        .app-option {
+            text-align: center;
+        }
+
+        .app-option img {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+
+        @media (max-width: 768px) {
+
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 20px;
+
+            }
+
+            .logo img {
+                height: 50px;
+
+                padding-left: 0;
+
+                top: 0;
+
+            }
+
+            .nav-links {
+                display: none;
+
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+
+            }
+
+            .nav-links a {
+                padding: 10px;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+
+            .menu-toggle {
+                display: block;
+
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+
+
+            section {
+                padding: 50px 20px;
+            }
+
+            section h1 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .input-box {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            .input-box input {
+                font-size: 16px;
+
+            }
+
+            .book-btn {
+                font-size: 20px;
+                padding: 10px 14px;
+                width: 100%;
+            }
+
+
+            .services-container {
+                padding: 10px;
+                font-size: small;
+            }
+
+            .services-heading {
+                font-size: 30px;
+                padding-left: 20px;
+            }
+
+            .heading-underline {
+                margin-left: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: auto auto auto;
+                gap: 10px;
+            }
+
+            .service-item img {
+                width: 100%;
+
+                height: auto;
+
+            }
+
+
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .text-content {
+                padding-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+
+            }
+
+            .text-content h1 {
+                font-size: 24px;
+                line-height: 50px;
+            }
+
+            .text-content p {
+                font-size: 20px;
+                line-height: 36px;
+            }
+
+            .image-section {
+                max-width: 100%;
+            }
+
+
+            .safety-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .safety-text-content {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .safety-text-content h1 {
+                font-size: 36px;
+                line-height: 50px;
+            }
+
+            .safety-text-content p {
+                font-size: 18px;
+                line-height: 36px;
+            }
+
+
+            .download-section {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .download-section h2 {
+                font-size: 30px;
+                line-height: 48px;
+            }
+
+            .download-options {
+                display: flex;
+                -webkit-box-pack: center;
+                justify-content: center;
+                gap: 52px;
+                font-size: 14px;
+            }
+        }
+
+        .app-option {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .app-option img {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+
+            .navbar {
+                padding: 20px;
+                gap: 50px;
+            }
+
+            .logo img {
+                height: 50px;
+                padding-left: 10px;
+                top: 10px;
+            }
+
+            .nav-links {
+                gap: 30px;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            /* Section */
+            section {
+                padding: 80px 30px;
+            }
+
+            section h1 {
+                font-size: 40px;
+                margin-bottom: 25px;
+            }
+
+            .input-box {
+                width: 80%;
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+
+            .input-box input {
+                font-size: 17px;
+            }
+
+            .book-btn {
+                font-size: 21px;
+                padding: 15px 10vh;
+            }
+
+            /* Services */
+            .services-container {
+                padding: 15px;
+            }
+
+            .services-heading {
+                font-size: 40px;
+                padding-left: 50px;
+            }
+
+            .heading-underline {
+                margin-left: 50px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .service-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            /* General Content */
+            .container {
+                padding: 40px;
+            }
+
+            .text-content {
+                padding-right: 15px;
+            }
+
+            .text-content h1 {
+                font-size: 40px;
+                line-height: 60px;
+            }
+
+            .text-content p {
+                font-size: 28px;
+                line-height: 42px;
+            }
+
+            .text-content .button {
+                padding: 18px 35px;
+                font-size: 20px;
+            }
+
+            /* Safety Container */
+            .safety-container {
+                padding: 25px;
+            }
+
+            .safety-text-content {
+                padding-right: 15px;
+            }
+
+            .safety-text-content h1 {
+                font-size: 40px;
+                line-height: 60px;
+            }
+
+            .safety-text-content p {
+                font-size: 28px;
+                line-height: 42px;
+            }
+
+            .safety-text-content .button {
+                font-size: 20px;
+            }
+
+            /* Download Section */
+            .download-section {
+                padding: 30px;
+            }
+
+            .download-section h2 {
+                font-size: 38px;
+                line-height: 55px;
+            }
+
+            .download-options {
+                gap: 25px;
+                font-size: 24px;
+            }
+
+            .app-option img {
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="rapido.png" alt="Rapido Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links">
+            <a href="#">About Us</a>
+            <a href="#">Safety</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+
+    <section>
+        <h1>Bharat Moves On Rapido!</h1>
+        <div class="input-box">
+            <img src="location.png" alt="Pickup Icon">
+            <input type="text" placeholder="Enter Pickup Location">
+        </div>
+        <div class="input-box">
+            <img src="location.png" alt="Drop Icon">
+            <input type="text" placeholder="Enter Drop Location">
+        </div>
+        <button class="book-btn">Book Ride</button>
+    </section>
+
+    <div class="services-container">
+        <h2 class="services-heading">Our Services</h2>
+        <div class="heading-underline"></div>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="bike.png" alt="Bike">
+                <span>Bike</span>
+            </div>
+            <div class="service-item">
+                <img src="auto.png" alt="Auto">
+                <span>Auto</span>
+            </div>
+            <div class="service-item">
+                <img src="autoshare.png" alt="Auto Share">
+                <span>Auto Share</span>
+            </div>
+            <div class="service-item">
+                <img src="parcel.png">
+                <span>Parcel</span>
+            </div>
+            <div class="service-item">
+                <img src="cab.png">
+                <span>Cab Economy</span>
+            </div>
+            <div class="service-item">
+                <img src="cab premium .png" alt="Cab Premium">
+                <span>Cab Premium</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="text-content">
+            <h1>Get Quick Rides Low Fares</h1>
+            <div class="divider"></div>
+            <p>In Rapido we ensure our customers get rides quickly at the most affordable prices.</p>
+            <a href="#" class="button">Book a ride</a>
+        </div>
+        <div class="image-section">
+            <img src="first 1.png" alt="Rapido Image">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="image-section">
+            <img src="sec2.png" alt="Rapido Earnings">
+        </div>
+        <div class="text-content">
+            <h1>Flexible Hours & <br>High Earnings</h1>
+            <p>Join as a Rapido captain and earn on your own terms. Driver whenever you want.</p>
+            <a href="#" class="button">Start Earning </a>
+        </div>
+    </div>
+
+    <div class="safety-container">
+        <div class="safety-text-content">
+            <h1>Safety for all</h1>
+            <p>At Rapido, your safety is our <br> priority. We're dedicated to <br>
+                making every ride safe and comfortable.</p>
+            <a href="#" class="button">Know More ></a>
+        </div>
+        <div class="safety-image-section">
+            <img src="3.png" alt="Rapido Safety">
+        </div>
+    </div>
+
+    <section class="download-section">
+        <h2>Download The Rapido Now</h2>
+        <div class="download-options">
+            <div class="app-option">
+                <img src="footer.png" alt="Rapido Bike-Taxi, Auto & Cabs">
+                <p>Rapido: Bike-Taxi, <br>Auto & Cabs</p>
+            </div>
+            <div class="app-option">
+                <img src="footer2.png">
+                <p>Rapido Captain: <br>
+                    Drive & Earn</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="copyright-section">
+                &copy; 2024 Rapido Bike Taxi. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default link behavior
+                const page = this.dataset.page;
+                loadPageContent(page); // Call function to load content
+            });
+        });
+
+        function loadPageContent(page) {
+            
+            const contentArea = document.getElementById('main-section');
+            contentArea.innerHTML = `<h2>Loading ${page.toUpperCase()}...</h2><p>Content for ${page} will be loaded here.</p>`;
+
+        }
+
+        // Ride booking
+        function bookRide() {
+            const pickup = document.getElementById('pickup-location').value;
+            const drop = document.getElementById('drop-location').value;
+            alert(`Booking ride from ${pickup} to ${drop}`);
+            // Add actual booking logic here (e.g., API call)
+        }
+
+        // Service details
+        function showServiceDetails(service) {
+            alert(`Showing details for ${service}`);
+            // Implement logic to display service details
+        }
+
+        // "Learn More" button
+        function loadMoreDetails() {
+            alert('Loading more details...');
+            // Implement logic to load additional details
+        }
+    </script>
+</body>
+
+</html>
